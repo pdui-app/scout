@@ -10,9 +10,26 @@ export default StyleSheet.create({
     flex: 1
   },
 
+  container: {
+    flex: 1,
+    width: width,
+    height: height,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   /* ----------------------- */
 
-  start: {}
+  start: {
+    borderRadius: 100,
+    borderWidth: 4,
+    borderColor: "#fff",
+    padding: 15
+  },
 
+  startText: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "900"
+  }
   /* ----------------------- */
 });

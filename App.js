@@ -1,9 +1,13 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Splash from "./screens/Splash";
+import Scout from "./screens/Scout";
 
 const Navigator = createStackNavigator(
-  { Splash: { screen: Splash } },
+  {
+    Splash: { screen: Splash },
+    Scout: { screen: Scout }
+  },
   {
     initialRouteName: "Splash",
     headerMode: "none",

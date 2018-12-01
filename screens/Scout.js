@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, View } from "react-native";
 
 import styles from "../styles";
 
-class Splash extends React.Component {
+class Scout extends React.Component {
   start = async () => {
     const { uri } = await this.camera.recordAsync({
       quality: Camera.Constants.VideoQuality["480p"],
@@ -36,4 +36,4 @@ class Splash extends React.Component {
   }
 }
 
-export default Splash;
+export default Scout;
