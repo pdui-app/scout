@@ -31,7 +31,14 @@ export default StyleSheet.create({
     height: height,
     zIndex: 2
   },
-
+  permissions_container: {
+    flex: 1,
+    width,
+    height,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#47F4C8"
+  },
   /* ----------------------- */
 
   start: {
@@ -70,5 +77,53 @@ export default StyleSheet.create({
     fontWeight: "700",
     color: "#fff",
     fontSize: 30
+  },
+  /* ----------------------- */
+
+  overlay: {
+    flex: 1,
+    width: width,
+    height: height,
+    backgroundColor: "rgba(0, 240, 179,0.5)",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  calibration_header_container: {
+    alignItems: "center",
+    position: "absolute",
+    transform: [{ rotate: "90deg" }],
+    right: -80
+  },
+
+  calibration_header: {
+    color: "#fff",
+    fontWeight: "800",
+    fontSize: 50,
+    marginBottom: 5
+  },
+  calibration_info: {
+    color: "#fff",
+    fontWeight: "600",
+    fontSize: 22
+  },
+  calibration_circle_left: {
+    backgroundColor: "#fff",
+    width: 30,
+    height: 30,
+    borderRadius: 30 / 2,
+    position: "absolute",
+    // top: height / 2,
+    top: 50,
+    left: width / 2
+  },
+  calibration_circle_right: {
+    backgroundColor: "#fff",
+    width: 30,
+    height: 30,
+    borderRadius: 30 / 2,
+    position: "absolute",
+    // top: height / 2,
+    bottom: 50,
+    right: width / 2
   }
 });
