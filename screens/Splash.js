@@ -1,38 +1,23 @@
 import React from "react";
-import { Camera } from "expo";
-import { TouchableOpacity, Text, View } from "react-native";
-
-import styles from "../styles";
+import { AsyncStorage } from "react-native";
 
 class Splash extends React.Component {
-  start = async () => {
-    const { uri } = await this.camera.recordAsync({
-      quality: Camera.Constants.VideoQuality["480p"],
-      maxDuration: 30,
-      mute: true
-    });
-  };
-
-  stop = () => this.camera.stopRecording();
+  async componentDidMount() {
+    try {
+      const token = await AsyncStorage.getItem("TOKEN");
+      token !== null && this.setState({ token });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render() {
-    return (
-      <Camera
-        ref={ref => (this.camera = ref)}
-        style={styles.camera}
-        type="front"
-      >
-        <View style={styles.container}>
-          <TouchableOpacity
-            onPressIn={this.start}
-            onPressOut={this.stop}
-            style={styles.start}
-          >
-            <Text style={styles.startText}>Start</Text>
-          </TouchableOpacity>
-        </View>
-      </Camera>
-    );
+    const { navigate } = this.props.navigation;
+    const { token } = this.state;
+
+    token ? navigate("Calibrate") : navigate("Register");
+
+    return <View />;
   }
 }
 
