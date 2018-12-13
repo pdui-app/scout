@@ -4,20 +4,20 @@ import { AsyncStorage, View } from "react-native";
 class Splash extends React.Component {
   state = { token: "" };
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     try {
       const { navigate } = this.props.navigation;
       let hasToken = await AsyncStorage.getItem("TOKEN");
 
-      hasToken && this.setState({ token: hasTokens });
+      hasToken && this.setState({ token: hasToken });
 
       const { token } = this.state;
 
-      token ? navigate("Calibrate") : navigate("Register");
+      token ? navigate("Calibration") : navigate("Register");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   render() {
     return <View />;

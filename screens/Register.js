@@ -1,11 +1,19 @@
 import React from "react";
+import queryString from "query-string";
+import { AsyncStorage } from "react-native";
 
 import { TouchableOpacity, Text, View, Image, WebView } from "react-native";
 
 import styles from "../styles";
 
 export default class Register extends React.Component {
-  state = { register: false };
+  state = { register: false, doesNavigate: false };
+
+  async componentDidMount() {
+    await AsyncStorage.removeItem("TOKEN");
+
+    this.setState({ register: false });
+  }
 
   renderView = () => {
     const { register } = this.state;
@@ -14,9 +22,31 @@ export default class Register extends React.Component {
       return (
         <View style={styles.webview}>
           <WebView
-            useWebKit={true}
-            source={{ url: "https://mangohype.netlify.com" }}
-            onNavigationStateChange={e => console.log(e)}
+            source={{ url: "https://pdui.now.sh/api/car/login" }}
+            onNavigationStateChange={async e => {
+              const { url } = e;
+
+              const matchedURL = "https://pdui.now.sh/api/car/callback?code";
+              const matchedSubString = url.substring(0, 41);
+              const { query } = queryString.parseUrl(url);
+
+              console.log(query);
+              try {
+                const { navigate } = this.props.navigation;
+
+                query.code
+                  ? await AsyncStorage.setItem("TOKEN", query.code)
+                  : null;
+
+                const token = await AsyncStorage.getItem("TOKEN");
+
+                if (token) {
+                  navigate("Calibration");
+                }
+              } catch (e) {
+                console.log(e);
+              }
+            }}
           />
         </View>
       );

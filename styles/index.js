@@ -39,6 +39,27 @@ export default StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#47F4C8"
   },
+  circle: {
+    backgroundColor: "#47F4C8",
+    width: 30,
+    height: 30,
+    borderRadius: 30 / 2,
+    position: "absolute"
+  },
+
+  flash: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    backgroundColor: "rgb(255, 255, 255)",
+    width: width,
+    height: height,
+    zIndex: 5
+  },
+  loading: {
+    height: 150,
+    width: 150
+  },
   /* ----------------------- */
 
   start: {
@@ -92,7 +113,7 @@ export default StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     transform: [{ rotate: "90deg" }],
-    right: -80
+    right: -75
   },
 
   calibration_header: {
@@ -112,9 +133,7 @@ export default StyleSheet.create({
     height: 30,
     borderRadius: 30 / 2,
     position: "absolute",
-    // top: height / 2,
-    top: 50,
-    left: width / 2
+    top: -15
   },
   calibration_circle_right: {
     backgroundColor: "#fff",
@@ -122,8 +141,98 @@ export default StyleSheet.create({
     height: 30,
     borderRadius: 30 / 2,
     position: "absolute",
-    // top: height / 2,
-    bottom: 50,
-    right: width / 2
+    bottom: -15
+  },
+  countdown_container: {
+    transform: [{ rotate: "90deg" }],
+    alignItems: "center",
+    position: "absolute"
+  },
+  countdown: {
+    color: "#fff",
+    fontWeight: "900",
+    fontSize: 90
+  },
+  countdown_getReady: {
+    color: "#fff",
+    fontSize: 40,
+    fontWeight: "900"
+  },
+
+  /* ----------------------- */
+  response_failure_overlay: {
+    flex: 1,
+    width: width,
+    height: height,
+    backgroundColor: "rgba(240, 18, 0,0.5)",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  response_success_overlay: {
+    flex: 1,
+    width: width,
+    height: height,
+    backgroundColor: "rgba(0, 240, 62,0.5)",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  response_failure_card: {
+    backgroundColor: "#F9FFF6",
+    width,
+    height: height / 3,
+    position: "absolute",
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  response_success_card: {
+    backgroundColor: "#FFF6F6",
+    width,
+    height: height / 3,
+    position: "absolute",
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  failure_button: {},
+  success_button: {},
+  response_button_text: { fontWeight: "700", color: "#fff", fontSize: 20 },
+  response_card_info: { fontWeight: "500", color: "#515151", marginBottom: 20 },
+  failure_button: {
+    backgroundColor: "#F3513B",
+    borderRadius: 100,
+    paddingVertical: 10,
+    paddingHorizontal: 65
+  },
+  success_button: {
+    backgroundColor: "#3FEA5E",
+    borderRadius: 100,
+    paddingVertical: 10,
+    paddingHorizontal: 65
+  },
+
+  /* ----------------------- */
+
+  fake: {
+    height: 50,
+    width: 50,
+    opacity: 0.5,
+    position: "absolute",
+    // right: 0,
+    // bottom: 0
+  },
+  score: {
+    fontWeight: "900",
+    fontSize: 100,
+    color: "#fff"
+  },
+  score_info: {
+    fontWeight: "600",
+    fontSize: 30,
+    color: "#fff"
+  },
+  btn_container: {
+    width,
+    height
   }
 });
